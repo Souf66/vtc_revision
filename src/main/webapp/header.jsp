@@ -21,7 +21,7 @@
         <a class="nav-link" href="<% request.getContextPath(); %> conducteur">Conducteur</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<% request.getContextPath(); %>vehicule">Véhicule</a>
+        <a class="nav-link" href="<% request.getContextPath(); %>createVehi">Véhicule</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<% request.getContextPath(); %>asso">Association</a>

@@ -8,6 +8,5 @@ public interface IDao<T> {
 	public boolean create(T object);
 	
 	// CRUD - R
-	
 	public List read();
 }

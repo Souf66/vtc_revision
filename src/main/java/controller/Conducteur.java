@@ -19,6 +19,9 @@ public class Conducteur extends HttpServlet {
 	//En Global
 	ConducteurDao conD = new ConducteurDao();
        
+	//VEHICULE
+	Vehicule veh = new Vehicule();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,7 +35,7 @@ public class Conducteur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Je get les segments de mon URL pour rester sur la mm servlet
-		System.out.println(request.getServletPath());
+		//System.out.println(request.getServletPath());
 		String action = request.getServletPath();
 		
 		switch (action) {
@@ -49,6 +52,18 @@ public class Conducteur extends HttpServlet {
 			case "/delete":
 				delete(request, response);
 	             break;
+			case "/createVehi":
+				 veh.instertVehicule(request, response);
+	            break;
+			case "/editVehi":
+				 veh.editVehicule(request, response);
+	            break;
+			case "/updateVehi":
+				 veh.updateVehicule(request, response);
+	            break;
+			case "/deleteVehi":
+				 veh.deleteVeh(request, response);
+	            break;
 		}
 		// J'appelle ConducteurDao pour avoir la liste
 		
@@ -74,7 +89,13 @@ public class Conducteur extends HttpServlet {
 		
 		doGet(request, response);
 	}
-	
+	public void listing(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("listing", conD.read());
+		
+		//request.getRequestDispatcher("Article/listing.jsp").forward(request, response);
+		// Ici, je crée la vue: page qui va etre appeller
+		request.getRequestDispatcher("/conducteur/ajout.jsp").forward(request, response);
+	}
 	public void instertConducteur(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 		// Recuperation saisie USER
