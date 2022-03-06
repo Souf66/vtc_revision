@@ -30,11 +30,10 @@ public class Conducteur {
 		return id;
 	}
 
-	/*
-	 * Je n'ai pas besoin du setId car il est géré car mysql
-	 * public void setId(int id) {
+	
+	 public void setId(int id) {
 		this.id = id;
-	}*/
+	}
 
 	public String getPrenom() {
 		return prenom;

@@ -22,6 +22,9 @@ public class Conducteur extends HttpServlet {
 	//VEHICULE
 	Vehicule veh = new Vehicule();
 	
+	//Asso
+	Asso asso = new Asso();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -63,6 +66,15 @@ public class Conducteur extends HttpServlet {
 	            break;
 			case "/deleteVehi":
 				 veh.deleteVeh(request, response);
+	            break;
+			case "/createAsso":
+				 asso.instertAsso(request, response);
+	            break;
+			case "/editAsso":
+				 asso.editAsso(request, response);
+	            break;
+			case "/deleteAsso":
+				 asso.deleteAsso(request, response);
 	            break;
 		}
 		// J'appelle ConducteurDao pour avoir la liste
